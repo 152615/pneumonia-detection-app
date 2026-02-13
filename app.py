@@ -1,13 +1,18 @@
-import gdown
-file_id = "133h_f_8KVwGe52Um14PMhvn2PtSbi7ny"
-url = f"https://drive.google.com/uc?id=133h_f_8KVwGe52Um14PMhvn2PtSbi7ny"
-gdown.download(url, "pneumonia_model.keras", quiet=false)
 import streamlit as st
+import gdown
 import tensorflow as tf
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 import numpy as np
 from PIL import Image
+
+# Google Drive file ID
+file_id = "133h_f_8KVWGe52Um14PMhvn2PtSbi7ny"
+url = "https://drive.google.com/uc?id=" + file_id
+
+# Download model
+gdown.download(url, "pneumonia_model.keras", quiet=False)
+
 
 # Load model
 model = load_model("pneumonia_model.keras")
@@ -31,5 +36,6 @@ if uploaded_file is not None:
         st.error("⚠️ Prediction: Pneumonia")
     else:
         st.success("✅ Prediction: Normal")
+
 
 
