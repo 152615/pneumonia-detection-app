@@ -1,3 +1,7 @@
+import gdown
+file_id = "133h_f_8KVwGe52Um14PMhvn2PtSbi7ny"
+url = f"https://drive.google.com/uc?id={133h_f_8KVwGe52Um14PMhvn2PtSbi7ny}"
+gdown.download(url, "pneumonia_model.keras", quiet=false)
 import streamlit as st
 import tensorflow as tf
 from tensorflow.keras.models import load_model
@@ -27,3 +31,4 @@ if uploaded_file is not None:
         st.error("⚠️ Prediction: Pneumonia")
     else:
         st.success("✅ Prediction: Normal")
+
